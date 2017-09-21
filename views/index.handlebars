@@ -1,0 +1,56 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="container">
+            <h1>Burger Mania!</h1>
+        </div>
+    </div>
+</div>
+
+
+{{!-- <h2>Ready to Eat</h2>
+{{#if devoured}}
+    <ul>
+        {{#each burgers}}
+            <li>
+                <p>{{burger_name}}</p>
+                <form action="/?_method=PUT" method="POST" class="button-size">
+                    <input type="text" name="devour" placeholder="devoured">
+                    <button type="submit">Devoured It!</button>
+                </form>
+            </li>
+            {{/each}}
+    </ul>
+    {{else}}
+{{/if}}
+
+<h2>BURGER(s) ALL GONE!</h2>
+
+
+{{#each burgers}}
+    <li>
+        <p>{{burger_name}}</p>
+        <form action="/?_method=PUT" method="POST" class="button-size">
+            <input type="text" name="devour" placeholder="devoured">
+	        <button type="submit">Devoured It!</button>
+        </form>
+
+    </li>
+     {{/each}}
+</ul> --}}
+
+<h1>BURGER MENU</h1>
+
+<ul>
+  {{#each burgers}}
+    <li>
+      <p>
+        {{this.id}}. {{this.burger_name}}
+
+        <form action="/{{this.id}}?_method=DELETE" method="POST">
+          <input type="hidden" name="id" value="{{this.id}}">
+          <button type="submit">Delete</button>
+        </form>
+      </p>
+    </li>
+  {{/each}}
+</ul>

@@ -1,0 +1,1 @@
+// var myorm = require('../config/orm.js');

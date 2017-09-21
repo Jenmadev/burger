@@ -1,15 +1,24 @@
-var myconnection = require('connection.js');
+var myconnection = require('./connection.js');
 
-myconnection.connection.query("SELECT * FROM burgers", function(err,results){
-    for (var i = 0; i < results.length; i++){
-        console.log('Item ID: '+ results[i].id  +  '| Burger Name: ' + results[i].burger_name + '| Price: $' + results[i].price+ '| Inventory: ' + results[i].stock_quantity);
-        // console.log(results);
-    };
+var orm = {
+    selectAll: function (){
+        myconnection.query("SELECT * FROM burgers", function(err, data) {
+            if (err) throw err;
+            console.log(data);
+          });
+    },
+    insertOne: function (data){
+        myconnection.query("INSERT INTO burgers (burger_name) VALUES (?)", [data.body.burger], function(err, result) {
+            if (err) throw err;
+        });
+    },
+    updateOne: function (data){
+        myconnection.query("UPDATE burgers SET devoured = ? WHERE id = ?", [
+            data.body.devoured, data.body.id
+          ], function(err, result) {
+            if (err) throw err;
+        });
+    }
+};
 
-
-
-
-
-
-
-module.exports = myconnection;
+module.exports = orm;

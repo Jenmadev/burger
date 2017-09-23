@@ -1,23 +1,20 @@
-<div class="container">
-    <div class="jumbotron">
-        <div class="container">
-            <h1>Burger Mania!</h1>
-        </div>
-    </div>
+<div class="container" id="style">
+    <h1>Burger Mania!</h1>
 </div>
+
 
 <div class="container">
     <div class="row">
         <div class="col-md-6 col-sm-4">
-            <h2>Ready to Eat</h2>
-            <ol>  
+            <h4>MENU</h4>
+            <ol class="menu">  
                 {{#each burgers}}
                     {{#unless devoured}} 
                         <li>
-                            <p>{{burger_name}}</p>
+                            <p class="listyle">{{burger_name}}</p>
                             <form action="/{{id}}?_method=PUT" method="POST" class="button-size">
                                 <input type="hidden" name="id" value="{{id}}">
-                                <button type="submit">Devour It!</button>                    
+                                <button type="submit" class="buttonstyle" >Devour It!</button>                    
                             </form>
                         </li>
                     {{/unless}}
@@ -25,7 +22,7 @@
             </ol>
         </div>  
                 <div class="col-md-6 col-sm-4">
-            <h2>BURGER(s) ALL GONE!</h2>
+            <h4>ORDERS!</h4>
             <ol>
                 {{#each burgers}}
                     {{#if devoured}}

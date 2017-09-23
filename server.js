@@ -4,7 +4,7 @@ var methodOverride = require("method-override");
 var burgerRoutes = require('./controllers/burgers_controller.js')
 
 var app = express();
-var port = process.env.PORT || 8000;
+var port = process.env.PORT || 8080;
 
 // Parse application/x-www-form-urlencoded
 app.use(bodyParser.urlencoded({ extended: false }));
